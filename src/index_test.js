@@ -1,19 +1,19 @@
-import { bob } from "./index"
-import { equal } from "assert"
+import { generate } from "./index"
+import assert, { equal } from "assert"
+import { times } from "./test_helpers"
+import { stamp } from "./stamp"
 
-describe("index", () => {
-  describe("#bob", () => {
+describe("uuid", () => {
+  describe("generate", () => {
 
-    it("bob(1) => 1", () => {
-      equal(bob(1), 1)
-    })
+    times(100, () => {
+      var g = generate()
 
-    it("bob(2) => 4", () => {
-      equal(bob(2), 4)
-    })
+      it (`correct format -- ${ g }`, () => {
+        var r = /^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$/
+        assert((r).test(g))
+      })
 
-    it("bob(3) => 9", () => {
-      equal(bob(3), 9)
     })
 
   })
