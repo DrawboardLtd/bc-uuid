@@ -13,14 +13,17 @@
  *
  */
 
-var MARK    = "bc"
+var MARK    = "BC"
 var VERSION = "1"
 
-import { stamp } from "./stamp"
-import { group } from "./group"
+import { stamp as s } from "./stamp"
+import { group as g } from "./group"
+
+export const stamp = s
+export const group = g
 
 export var generate = () => ([
-  stamp(),
+  group(8),
   VERSION + group(3),
   MARK + group(2),
   group(4),
