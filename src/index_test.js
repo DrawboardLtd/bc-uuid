@@ -10,7 +10,7 @@ describe("uuid", () => {
       var g = generate()
 
       it (`correct format -- ${ g }`, () => {
-        var r = /^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$/
+        var r = /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/
         assert((r).test(g))
       })
 
